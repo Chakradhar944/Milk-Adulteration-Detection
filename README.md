@@ -328,5 +328,4 @@ Milk-Adulteration-Detection/
 
 Additional project documentation will be available in the documentation folder.
 
-The documentation may include:
-Project Report
+The documentation include - Project Report
