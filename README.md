@@ -1,39 +1,44 @@
-🥛 Milk Adulteration Detection System
+# 🥛 Milk Adulteration Detection System
 
-📌 Overview
+## 📌 Overview
 
 Milk adulteration is a major food-quality concern in which substances such as water, detergent, starch, urea, and other chemicals may be added to milk.
 
-This project presents a low-cost, portable, and real-time **Milk Adulteration Detection System** using an Arduino Uno and multiple sensors. The system monitors important milk parameters using a pH sensor, DS18B20 temperature sensor, and MQ135 gas sensor. The sensor readings are processed by the Arduino and the detected status is displayed on a 16×2 LCD.
+This project presents a low-cost, portable, and real-time **Milk Adulteration Detection System** using an **Arduino Uno** and multiple sensors. The system monitors important milk parameters using a **pH sensor, DS18B20 temperature sensor, and MQ135 gas sensor**. The sensor readings are processed by the Arduino and the detected status is displayed on an LCD.
 
-The project aims to provide a simple and accessible approach for preliminary milk quality monitoring without relying entirely on conventional laboratory-based testing.
+The system provides a simple approach for preliminary milk quality monitoring by analyzing multiple sensor parameters and comparing them with predefined threshold values.
 
-🎯 Objectives
+---
 
-1. Develop a low-cost milk adulteration detection system.
-2. Monitor milk using pH, temperature, and gas sensors.
-3. Process sensor data using an Arduino Uno.
-4. Compare sensor readings with predefined threshold values.
-5. Provide real-time results through an LCD display.
-6. Develop a portable and user-friendly prototype.
-7. Explore possibilities for future IoT and machine-learning enhancements.
+## 🎯 Objectives
 
+- Develop a low-cost milk quality monitoring system.
+- Monitor milk using pH, temperature, and gas sensors.
+- Process sensor data using an Arduino Uno.
+- Compare sensor readings with predefined threshold values.
+- Provide real-time information through an LCD display.
+- Develop a portable and easy-to-use prototype.
+- Combine multiple sensor parameters for preliminary milk quality assessment.
 
-🔧 Hardware Components
+---
 
-Arduino Uno - Processes sensor data and controls the system.
-pH Sensor - Measures the acidity/alkalinity of the milk.
-DS18B20 Temperature Sensor - Measures milk temperature.
-MQ135 Gas Sensor - Detects gases/volatile compounds.
-16×2 LCD Display - Displays sensor readings and detection status.
-Breadboard - Circuit prototyping.
-Jumper Wires - Component connections.
-Power Supply - Powers the system.
+## 🔧 Hardware Components
 
+**Arduino Uno** - Processes sensor data and controls the system 
+**pH Sensor** - Measures the acidity/alkalinity of the milk 
+**DS18B20 Temperature Sensor** - Measures the temperature of the milk sample 
+**MQ135 Gas Sensor** - Provides gas-level measurements 
+**LCD Display** - Displays sensor readings and detection status 
+**Breadboard** - Used for circuit prototyping 
+**Jumper Wires** - Used for component connections 
+**Power Supply** - Provides power to the system 
 
-⚙️ System Architecture
+---
 
-The system follows this basic architecture:
+## ⚙️ System Architecture
+
+The system follows a multi-sensor architecture in which the sensors collect information from the milk sample and send their readings to the Arduino Uno.
+
 
                  ┌─────────────────┐
                  │   Milk Sample   │
@@ -56,21 +61,37 @@ The system follows this basic architecture:
                           │
                           ▼
                  ┌─────────────────┐
-                 │    16×2 LCD     │
+                 │   LCD Display   │
                  │  Result Display │
                  └─────────────────┘
 
+🔄 How the System Works
+A milk sample is provided for testing.
+The pH sensor measures the pH level of the sample.
+The DS18B20 sensor measures the temperature.
+The MQ135 sensor provides a gas-level reading.
+The Arduino Uno collects the sensor readings.
+The readings are processed by the Arduino.
+Each parameter is compared with its predefined threshold.
+If a parameter falls outside its defined range, the system identifies the sample as potentially adulterated.
+The sensor values and detected status are displayed on the LCD.
+Sensor information can also be observed through the Arduino IDE Serial Monitor.
 
-💻 IDE & Libraries
-
+💻 IDE & Development Environment
 
 Arduino IDE:
-The "Arduino IDE (Integrated Development Environment)" was used as the primary development environment for this project. It was used to write, edit, compile, and upload the Embedded C/C++ program to the Arduino Uno.
-The Arduino IDE was also used during testing and debugging through the **Serial Monitor**, which allows sensor readings such as temperature, pH value, and gas sensor value to be observed while the system is running.
 
+The project was developed using the Arduino IDE (Integrated Development Environment).
 
-The overall development workflow was:
+Arduino IDE was used to:
 
+Write and edit the Embedded C/C++ program.
+Compile and verify the source code.
+Upload the program to the Arduino Uno.
+Select the Arduino board and communication port.
+Monitor sensor readings during testing.
+Debug the system using the Serial Monitor.
+Development Workflow
 Write Code
     ↓
 Compile / Verify
@@ -86,99 +107,224 @@ Monitor Sensor Data
 Test & Debug
 
 
-
 📚 Libraries Used
-The project uses several Arduino libraries to interface with the LCD and temperature sensor.
+
+The project uses Arduino libraries for communication with the LCD and DS18B20 temperature sensor.
 
 1. Wire.h
-The Wire library provides I2C communication support for the Arduino. It is used as the communication interface between the Arduino Uno and the I2C-based LCD module.
 
-In this project, the library enables the Arduino to send display commands and data to the LCD using the I2C interface.
+The Wire library provides I2C communication support for the Arduino.
+
+It is used to establish communication between the Arduino Uno and the I2C-based LCD module.
+
+It allows the Arduino to send commands and display data through the I2C interface.
 
 2. LiquidCrystal_I2C.h
-The LiquidCrystal_I2C library is used to control the I2C LCD display.
+
+The LiquidCrystal_I2C library is used to control the I2C LCD.
+
 It provides functions for:
 
 Initializing the LCD
-Turning on the LCD backlight
+Controlling the LCD backlight
 Setting the cursor position
-
 Displaying sensor readings
-Displaying the milk quality status
+Displaying the system status
 Clearing the display
 
-The LCD is used to display parameters such as temperature, pH value, gas value, and the detected status.
-
 3. OneWire.h
+
 The OneWire library provides communication support for devices that use the One-Wire communication protocol.
-In this project, it is used to communicate with the DS18B20 temperature sensor through its data line.
+
+In this project, it is used to communicate with the DS18B20 temperature sensor.
 
 4. DallasTemperature.h
-The DallasTemperature library provides a convenient interface for obtaining temperature measurements from the DS18B20 sensor.
+
+The DallasTemperature library provides functions for obtaining temperature measurements from the DS18B20 sensor.
+
 It is used to:
 
 Initialize the temperature sensor
 Request temperature measurements
 Read the temperature value
-Convert the sensor data into a temperature reading in °C
+Obtain the temperature reading in degrees Celsius
+Library Summary
+Library	Purpose
+Wire.h	I2C communication
+LiquidCrystal_I2C.h	LCD control
+OneWire.h	One-Wire communication
+DallasTemperature.h	DS18B20 temperature measurement
 
+🔌 Pin Connections
 
+The main sensor connections used by the Arduino program are:
 
-▶️ How to Run the Project
+pH Sensor -	A0
+MQ135 Gas Sensor -	A1
+DS18B20 Temperature Sensor -	D2
+I2C LCD SDA -	A4
+I2C LCD SCL -	A5
 
-1. Install Arduino IDE
-Download and install the Arduino IDE on your computer.
+Detailed circuit diagrams and connection diagrams are available in the circuit folder.
 
-2. Install Required Libraries
-Open Arduino IDE and install the following libraries through the Library Manager:
+📐 Circuit Diagram
 
-- LiquidCrystal_I2C
-- OneWire
-- DallasTemperature
+The project contains the following circuit documentation:
 
-The Wire.h library is used for I2C communication and is included with the Arduino environment.
+Block diagram
+Circuit diagram
+Pin-connection diagram
 
-3. Connect the Hardware
-Connect the components according to the circuit and pin-connection diagrams provided in the circuit/ folder.
+These diagrams can be found in:
 
-The main connections are:
+circuit/
+🖥️ System Output
 
-pH Sensor - A0 
-MQ135 Gas Sensor - A1 
-DS18B20 Temperature Sensor - D2 
-I2C LCD SDA - A4 
-I2C LCD SCL - A5 
+The system displays the measured parameters and detection status on the LCD.
 
-4. Open the Source Code
-Open: source-code/milk_adulteration_detection.ino
-
-5. Select Arduino Board
-In Arduino IDE, select:
-Board: Arduino Uno
-
-6. Select COM Port
-Connect the Arduino Uno to the computer using a USB cable and select the corresponding COM port.
-
-7. Verify the Program
-Click Verify/Compile in the Arduino IDE to check the program for compilation errors.
-
-8. Upload the Program
-Click Upload to transfer the program to the Arduino Uno.
-
-9. Monitor the Output
-After uploading, the system initializes the sensors and LCD.
-
-The LCD displays:
+The displayed information includes:
 
 Temperature
 pH value
 Gas value
 Milk status
-Reason for adulteration, if detected
+Reason for the detected status
 
-The Arduino IDE Serial Monitor can also be used to observe sensor readings and system output during testing.
+The Arduino program compares the measured values with predefined threshold conditions.
 
-10. Test the System
-Provide the milk sample and observe the sensor readings and displayed status.
+The implemented detection logic uses:
 
-The system compares the measured values against predefined threshold values and displays the corresponding milk quality status.
+Temperature Range: 25°C – 35°C
+pH Range: 6.4 – 7.0
+Gas Sensor Limit: 300
+If a measured parameter falls outside its defined condition, the system displays an ADULTERATED status along with the corresponding reason.
+
+📷 Prototype
+
+The project was implemented as a hardware prototype using an Arduino Uno, sensors, LCD display, breadboard, and connecting wires.
+
+
+▶️ How to Run the Project
+Step 1 — Install Arduino IDE
+
+Install the Arduino IDE on your computer.
+
+Step 2 — Install Required Libraries
+
+Open the Arduino IDE Library Manager and install:
+
+LiquidCrystal_I2C
+OneWire
+DallasTemperature
+
+The Wire.h library is used for I2C communication.
+
+Step 3 — Connect the Hardware
+
+Connect the sensors, Arduino Uno, and LCD according to the circuit diagrams provided in the circuit/ folder.
+
+Step 4 — Open the Source Code
+
+Open:
+
+source-code/milk_adulteration_detection.ino
+
+in the Arduino IDE.
+
+Step 5 — Select the Board
+
+Select:
+
+Arduino Uno
+
+from the Arduino IDE board selection menu.
+
+Step 6 — Select the COM Port
+
+Connect the Arduino Uno to your computer using a USB cable and select the corresponding COM port.
+
+Step 7 — Verify the Code
+
+Click Verify or Compile in the Arduino IDE to check the program for compilation errors.
+
+Step 8 — Upload the Program
+
+Click Upload to transfer the program to the Arduino Uno.
+
+Step 9 — Monitor the System
+
+After uploading the program, the sensors begin collecting data.
+
+The LCD displays the sensor readings and system status.
+
+The Serial Monitor can also be used to observe sensor readings during testing.
+
+🧪 Detection Parameters
+
+The system evaluates multiple parameters instead of relying on a single sensor.
+
+pH
+
+The pH sensor provides the pH value of the milk sample. The measured value is compared against the predefined pH range.
+
+Temperature
+
+The DS18B20 sensor measures the temperature of the milk sample. The temperature reading is compared against the defined temperature range.
+
+Gas Level
+
+The MQ135 sensor provides a gas-level reading. The measured value is compared against the predefined gas threshold.
+
+Multi-Parameter Decision
+       Sensor Readings
+              │
+              ▼
+     ┌─────────────────┐
+     │ Arduino Uno     │
+     │ Data Processing │
+     └────────┬────────┘
+              │
+              ▼
+    Compare with Thresholds
+              │
+       ┌──────┴──────┐
+       │             │
+       ▼             ▼
+   Within Range   Outside Range
+       │             │
+       ▼             ▼
+   PURE MILK     ADULTERATED
+📊 Serial Monitor
+
+The Arduino IDE Serial Monitor can be used to observe sensor data during testing.
+
+Example output format:
+
+------ MILK ANALYSIS ------
+Temperature: XX.X
+pH Value: X.XX
+
+The Serial Monitor is useful for observing sensor readings and debugging the system during development.
+
+🛠️ Technologies Used
+Hardware
+Arduino Uno
+pH Sensor
+DS18B20 Temperature Sensor
+MQ135 Gas Sensor
+LCD Display
+Breadboard
+Jumper Wires
+Software
+Arduino IDE
+Embedded C/C++
+Arduino Libraries
+I2C Communication
+One-Wire Communication
+
+📂 Documentation
+
+Additional project documentation will be available in the documentation folder.
+
+The documentation may include:
+Project Report
