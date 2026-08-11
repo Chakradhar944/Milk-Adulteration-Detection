@@ -275,25 +275,7 @@ Gas Level
 
 The MQ135 sensor provides a gas-level reading. The measured value is compared against the predefined gas threshold.
 
-Multi-Parameter Decision
-       Sensor Readings
-              │
-              ▼
-     ┌─────────────────┐
-     │ Arduino Uno     │
-     │ Data Processing │
-     └────────┬────────┘
-              │
-              ▼
-    Compare with Thresholds
-              │
-       ┌──────┴──────┐
-       │             │
-       ▼             ▼
-   Within Range   Outside Range
-       │             │
-       ▼             ▼
-   PURE MILK     ADULTERATED
+
 📊 Serial Monitor
 
 The Arduino IDE Serial Monitor can be used to observe sensor data during testing.
