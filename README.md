@@ -122,27 +122,6 @@ Request temperature measurements
 Read the temperature value
 Convert the sensor data into a temperature reading in °C
 
-🔗 Library Interaction
-
-The libraries work together with the Arduino program as follows:
-
-                 Arduino Uno
-                     │
-        ┌────────────┼────────────┐
-        │            │            │
-        ▼            ▼            ▼
-     Wire.h     OneWire.h    Sensor Processing
-        │            │
-        ▼            ▼
-LiquidCrystal_I2C  DallasTemperature
-        │            │
-        ▼            ▼
-    16×2 LCD       DS18B20
-        │            │
-        └──────┬─────┘
-               ▼
-          Display / Data
-
 
 
 ▶️ How to Run the Project
