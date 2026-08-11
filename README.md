@@ -304,6 +304,26 @@ Arduino Libraries
 I2C Communication
 One-Wire Communication
 
+## 📁 Repository Structure
+
+```text
+Milk-Adulteration-Detection/
+│
+├── circuit/
+│   ├── block-diagram.png
+│   └── circuit-diagram.png
+│
+├── documentation/
+│   └── Project-report.pdf
+│
+├── prototype/
+│   └── prototype-and-lcd-output.png
+│
+├── source-code/
+│   └── milk_adulteration_detection.ino
+│
+└── README.md 
+
 📂 Documentation
 
 Additional project documentation will be available in the documentation folder.
